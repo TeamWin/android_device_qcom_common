@@ -64,6 +64,10 @@ static unsigned int cpu_id[] = {
 	239, /* MSM8939 SOC ID */
 };
 
+#ifdef INCLUDE_KEYMASTER_PARTITION_CHECK
+    #define KEYMASTER_PARTITION_NAME "/dev/block/bootdevice/by-name/keymaster"
+#endif
+
 static int loaded_library = 0;
 static int (*qseecom_create_key)(int, void*);
 static int (*qseecom_update_key)(int, void*, void*);
@@ -310,6 +314,13 @@ int should_use_keymaster()
         SLOGI("Keymaster version is not 1.0");
         return rc;
     }
+
+#ifdef INCLUDE_KEYMASTER_PARTITION_CHECK
+    if (access(KEYMASTER_PARTITION_NAME, F_OK) == -1) {
+        SLOGI("Keymaster partition does not exists");
+        return rc;
+    }
+#endif
 
     return 1;
 }
