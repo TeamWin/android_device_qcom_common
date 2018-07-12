@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+ifneq ($(BOARD_PROVIDES_GPTUTILS),true)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -46,3 +48,5 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := libgptutils_headers
 LOCAL_EXPORT_C_INCLUDE_DIRS:=$(LOCAL_PATH)
 include $(BUILD_HEADER_LIBRARY)
+
+endif
