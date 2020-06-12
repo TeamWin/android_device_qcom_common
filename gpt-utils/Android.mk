@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(BOARD_PROVIDES_GPTUTILS),true)
+ifeq ($(USE_COMMON_GPTUTILS),true)
 
 LOCAL_PATH := $(call my-dir)
 
