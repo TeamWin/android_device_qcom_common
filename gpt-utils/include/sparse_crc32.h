@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2010 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef _QCOM_POWER_FEATURE_H
-#define _QCOM_POWER_FEATURE_H
+#ifndef _LIBSPARSE_SPARSE_CRC32_H_
+#define _LIBSPARSE_SPARSE_CRC32_H_
 
-#include <hardware/power.h>
+#include <stdint.h>
 
-void set_device_specific_feature(struct power_module *module, feature_t feature, int state);
+uint32_t sparse_crc32(uint32_t crc, const void* buf, size_t size);
 
 #endif
