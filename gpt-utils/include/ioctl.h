@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
 #ifndef UAPI_UFS_IOCTL_H_
 #define UAPI_UFS_IOCTL_H_
 
@@ -10,13 +11,14 @@
 #define UFS_IOCTL_QUERY			0x5388
 
 /**
- * struct ufs_ioctl_query_data - used to transfer data to and from user via ioctl
+ * struct ufs_ioctl_query_data - used to transfer data to and from user via
+ * ioctl
  * @opcode: type of data to query (descriptor/attribute/flag)
  * @idn: id of the data structure
  * @buf_size: number of allocated bytes/data size on return
  * @buffer: data location
  *
- * Received: buffer and buf_size (available space for transfered data)
+ * Received: buffer and buf_size (available space for transferred data)
  * Submitted: opcode, idn, length, buf_size
  */
 struct ufs_ioctl_query_data {

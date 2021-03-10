@@ -1,0 +1,39 @@
+soong_namespace {
+}
+
+filegroup {
+    name: "libgptutils_src",
+    srcs: [
+        "gpt-utils.cpp",
+    ],
+}
+
+cc_defaults {
+    name: "libgptutils_defaults",
+    recovery_available: true,
+    header_libs: [
+        "libgptutils_headers",
+    ],
+    export_header_lib_headers: [
+        "libgptutils_headers",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libz",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    srcs: [
+        ":libgptutils_src",
+    ],
+}
+
+cc_library_headers {
+    name: "libgptutils_headers",
+    export_include_dirs: ["include"],
+    recovery_available: true,
+    vendor_available: true,
+}
